@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>  
+<head> 
+<style>
+h2,h3,h4 {
+font-size : 30px;
+color : green;
+font-weight : bold;
+}
+</style> 
+</head>  
+<body>  
+<center> 
+
+<h2><u>Calculate age from Date of Birth</u></h2>
+<br><br>
+<label>enter your name : 
+<input type ="text" id="fname"></label>
+<br><br>
+<label>enter date of birth : 
+<input type="date" id ="DOB"> </label> 
+<br><br>
+<span id = "msg" style="color:red"> </span> <br><br>   
+<br><br>
+<button onclick="fname();ageCal()">Calculate Age</button><br><br>
+<h3 id="f"></h3>  
+<h4 id="result"></h4>  
+
+<script>
+function ageCal() {  
+var x = document.getElementById("DOB").value;  
+var dob = new Date(x);  
+if(x==null || x=='') {  
+document.getElementById("msg").innerHTML = "**Choose a date please!";    
+return false;   
+} 
+else {  
+var month_diff = Date.now() - dob.getTime();    
+var age_dt = new Date(month_diff);      
+var year = age_dt.getUTCFullYear();   
+var age = Math.abs(year - 1970);  
+return document.getElementById("result").innerHTML ="Age is : " + age + " years. ";  
+}
+}
+function fname() {
+var x = document.getElementById("fname").value;
+document.getElementById("f").innerHTML = x;  
+}  
+</script>  
+
+</center>
+</body>
+</html> 
